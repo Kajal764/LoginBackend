@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean login(LoginUserDto loginUserDto) {
 
+        System.out.println("inside login");
         Optional<UserInfo> userInfo = userRepository.findByEmail(loginUserDto.email);
         if (userInfo.isEmpty()) {
             throw new LoginException("No such account found", 400);
